@@ -1,0 +1,48 @@
+.popup-mc_container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 15% 1fr;
+}
+
+.popup-mc {
+    grid-area: -1 / 1 / -2 / 2;
+    background-color: #c6c6c6;
+    border-radius: 6px;
+    box-shadow: inset 2px 2px #fbfbfb, inset -2px -2px #545454;
+    display: grid;
+    grid-auto-flow: column;
+    border: black solid 2px;
+}
+
+.tab_container {
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: stretch;
+    gap: 0px;
+}
+
+.tab_container > button {
+    flex: 1;
+    background-color: #626262;
+    box-shadow: inset 3px 3px #c5c5c5, inset -2px 0px #2c2c2c;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border: black solid 2px;
+    border-bottom: none;
+    &.select {
+        background-color: #c6c6c6;
+        box-shadow: inset 2px 2px #fbfbfb, inset -2px 0px #595959;
+        margin-bottom: -4px;
+        z-index: 1;
+    }
+    &.close {
+        background-color: #3f3c40;
+        box-shadow: inset 1px 1px #bfbebf, inset -2px 0px #080505;
+        border-top-left-radius: 0;
+        margin-left: -4px;
+        z-index: -1;
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,43 @@
+.sign-mc{
+    /*ADD SHADOW TO SIGN*/
+    background-image: url('/assets/img/sign_oak.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    resize: both;
+}
+
+.sign-mc-input {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.sign-mc-input > span {
+    flex: 0 1 10%;
+    outline: transparent;
+    text-align: center;
+    caret-color: transparent;
+    color: black;
+    &::before{
+        -webkit-text-security: none;
+        margin-right: 1em;
+        content: ">";
+    }
+    &::after {
+        -webkit-text-security: none;
+        margin-left: 1em;
+        content: "<";
+    }
+    &:focus::before {
+        animation: blinker 1.2s step-start infinite;
+    }
+    &:focus::after {
+        animation: blinker 1.2s step-start infinite;
+    }
+
+}
+
+@keyframes blinker {
+    50% { color: transparent; }
+  }

@@ -1,0 +1,113 @@
+@import url('/assets/common/button_mc/styles.css');
+@import url('/assets/common/sign_mc/styles.css');
+@import url('/assets/common/popup_mc/styles.css');
+@import url('/assets/common/bingo_card/styles.css');
+@import url('/assets/common/bingo_machine/styles.css');
+
+html {
+    background-color: gray;
+}
+
+#id01 {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    grid-template: 1fr 60% 1fr / 1fr 40% 1fr;
+    grid-template-areas:
+        ". . ."
+        ". prompt ."
+        ". . .";
+}
+
+#id01 .popup-mc_container {
+    grid-area: prompt;
+}
+
+#id01 .popup-mc > * {
+    display: none;
+    grid-template-columns: 1fr 10% 60% 10% 1fr;
+    grid-template-rows: 10% 5% 3fr 5% 1fr 5%;
+    grid-template-areas:
+        ". . . . ."
+        ". . form-info . ."
+        ". . form . ."
+        ". . . . ."
+        ". con con con ."
+        ". . . . .";
+    align-items: center;
+
+    & label {
+        text-align: center;
+        grid-area: form-info
+    }
+
+    & form {
+        grid-area: form;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        resize: both;
+        overflow: auto;
+        aspect-ratio: 2;
+    }
+
+    & .button-mc_container {
+        grid-area: con;
+        gap: 3%;
+    }
+}
+
+#id02 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 58% 1fr 25% 1fr;
+    grid-template-rows: 12% 2% 17% 3% 1fr 3%;
+    grid-template-areas:
+    "nav nav nav nav nav"
+    ". . . . ."
+    ". bm . chat ."
+    ". . . chat ."
+    ". cds . chat ."
+    ". . . . .";
+}
+
+#id02 #navbar {
+    grid-area: nav;
+}
+
+#id02 #bingo-machine {
+    grid-area: bm;
+}
+
+#id02 #bingo-cards {
+    grid-area: cds;
+    grid-template-rows: 1fr;
+}
+
+#id02 #bingo-chat {
+    grid-area: chat;
+    grid-template-rows: 1fr;
+}
+
+* {
+    font: 12pt 'minecraftSeven';
+}
+
+@font-face {
+    font-family: minecraftSeven;
+    /* src: url("/assets/fonts/Minecraft\ Seven_2.ttf"); */
+    src: url("/fonts/Minecraft_Seven.ttf");
+}

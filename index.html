@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/styles/bingo.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div id="id01">
+    <div class="popup-mc_container">
+      <div class="tab_container">
+        <button class="login">Log In</button>
+        <button class="signup">Sign Up</button>
+        <button class="close">D</button>
+      </div>
+      <div class="popup-mc">
+        <div id="login">
+          <!--FIX RESIZING-->
+          <label for="signup-form">
+            Log In<br />
+            Welcome Back !<br />
+          </label>
+          <form id="login-form" class="sign-mc" name="login-form">
+            <label for="user">Username</label>
+            <div class="sign-mc-input">
+              <span contenteditable="true" role="textbox" spellcheck="false" name="user"></span>
+            </div>
+            <label for="pass">Password</label>
+            <div class="sign-mc-input">
+              <span contenteditable="true" role="textbox" style="-webkit-text-security: square;" spellcheck="false" name="pass"></span>
+            </div>
+          </form>
+          <div class="button-mc_container">
+            <button type="submit" form="login-form" value="submit">Submit</button>
+            <button type="submit" form="login-form" value="clear">Clear</button>
+          </div>
+        </div>
+        <div id="signup">
+          <!--FIX RESIZING-->
+          <label for="signup-form">
+            Sign Up<br />
+            Passwords can NOT be recovered if lost<br />
+          </label>
+          <form id="signup-form" class="sign-mc" name="signup-form">
+            <label for="user">Username</label>
+            <div class="sign-mc-input">
+              <span contenteditable="true" role="textbox" spellcheck="false" name="user"></span>
+            </div>
+            <label for="pass">Password</label>
+            <div class="sign-mc-input">
+              <span contenteditable="true" role="textbox" style="-webkit-text-security: square;" spellcheck="false" name="pass"></span>
+            </div>
+            <label for="pass-con">Confirm Password</label>
+            <div class="sign-mc-input">
+              <span contenteditable="true" role="textbox" style="-webkit-text-security: square;" spellcheck="false" name="pass-con"></span>
+            </div>
+          </form>
+          <div class="button-mc_container">
+            <button type="submit" form="signup-form" value="submit">Confirm</button>
+            <button type="submit" form="signup-form" value="clear">Clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="id02">
+    <div id="navbar">
+
+    </div>
+    <div id="bingo-machine" class="bingo-machine_wrapper">
+      <div class="bingo-machine_overlay" style="--slots: 7">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="bingo-machine"></div>
+    </div>
+    <div id="bingo-cards" class="popup-mc_container">
+      <div class="popup-mc">
+        <div class="bingo-card_container">
+        </div>
+      </div>
+    </div>
+    <div id="bingo-chat" class="popup-mc_container">
+      <div class="popup-mc">
+      </div>
+    </div>
+  </div>
+  <svg width=0 height=0>
+    <filter id="enchant">
+      <feImage href="enchant.gif" result="img" width="100%" height="100%" x="0%" y="0%"/>
+      <feComponentTransfer in="img" result="opac">
+        <feFuncA type="linear" slope="0.3"></feFuncA>
+        <feFuncR type="table" tableValues=".09803921568 .63137254902"></feFuncR>
+        <feFuncG type="table" tableValues=".03137254901 .32156862745"></feFuncG>
+        <feFuncB type="table" tableValues=".18039215686 .99607843137"></feFuncB>
+      </feComponentTransfer>
+      <feGaussianBlur in="opac" result="blur" stdDeviation="3"/>
+      <feComposite operator="atop" in="blur" in2="SourceGraphic" />
+    </filter>
+  </svg>
+</body>
+
+<script src="/assets/scripts/bingo.js"></script>
+<script src="/assets/common/popup_mc/popup_mc.js"></script>
+<script src="/assets/common/bingo_card/bingo_card.js"></script>
+<script src="/assets/common/bingo_machine/bingo_machine.js"></script>
+
+</html>
