@@ -2,7 +2,7 @@ function api_request(query, args, ctx){
     if(typeof ctx !== "undefined") {
         return $.ajax({
             type: 'post',
-            url: '/assets/php/bingo_api.php',
+            url: '/php/bingo_api.php',
             context: ctx,
             data: { QUERY: query, ARGS: JSON.stringify(args)},
             dataType: 'json'
@@ -10,7 +10,7 @@ function api_request(query, args, ctx){
     } else {
         return $.ajax({
             type: 'post',
-            url: '/assets/php/bingo_api.php',
+            url: '/php/bingo_api.php',
             data: { QUERY: query, ARGS: JSON.stringify(args)},
             dataType: 'json'
         });
@@ -73,17 +73,28 @@ for(let i = 0; i < 7; i++) {
     $("#bingo-machine .bingo-machine").append(`<div class="bingo-roll" style="flex-grow: 1"><div></div></div>`);
 }
 
+$("#id02 #bingo-cards .button-mc_container button").on('click', function(){
+    api_request('bingo', {}).done(function(r){
+        if(r.resp == 1){
+            console.log('bingo');
+        } else {
+            console.log("cum bingo");
+        }
+    })
+});
+
+
 $("#id01 tab_container button[name='bingo-login']").trigger("click");
 
 async function textures_load(){
-    const resp = await fetch('/assets/ressources/texture.json');
+    const resp = await fetch('/assets/texture.json');
     const textures = await resp.json();
     return textures;
 }
 
 textures_load().then(textures => {
     api_request("request_cards", {}).done(function(r){
-        for (const [idx, card] of r['resp'].entries()){
+        for (const [idx, card] of r.resp.entries()){
             console.log(card);
             for (const spot of card){
                 $(`#id02 .bingo-card_container .bingo-card_wrapper:nth-child(${idx+1}) .bingo-spot:nth-child(${spot['idx']+1})`).append(`<img src="${textures[textures["idx"][spot.number]].texture}" alt="${spot.number}" ${spot.called==1 ? 'class="called"' : ''}>`);

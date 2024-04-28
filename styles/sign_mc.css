@@ -1,6 +1,6 @@
 .sign-mc{
     /*ADD SHADOW TO SIGN*/
-    background-image: url('/assets/img/sign_oak.webp');
+    background-image: url('/img/sign_oak.webp');
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;

@@ -27,21 +27,21 @@
     }
 
     :nth-last-child(1) {
-        background-image: url('/assets/img/stone.png');
+        background-image: url('/img/stone.png');
         background-repeat: repeat;
         background-size: contain;
         grid-area: -1 / 1 / -2 / -1;
     }
     
     :nth-last-child(2) {
-        background-image: url('/assets/img/glass.png');
+        background-image: url('/img/glass.png');
         background-repeat: repeat;
         background-size: contain;
         grid-area: -2 / 1 / -3 / -1;
     }
 
     :nth-last-child(3) {
-        background-image: url('/assets/img/glass.png');
+        background-image: url('/img/glass.png');
         background-repeat: repeat;
         background-size: contain;
         grid-area: -3 / 1 / -4 / -1;

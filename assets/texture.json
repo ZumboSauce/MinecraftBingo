@@ -1,0 +1,442 @@
+{
+    "Cake": {
+        "texture": "/img/mc/Cake.png"
+    },
+    "Steak": {
+        "texture": "/img/mc/Steak.png"
+    },
+    "Bread": {
+        "texture": "/img/mc/Bread.png"
+    },
+    "Golden_Carrot": {
+        "texture": "/img/mc/Golden_Carrot.png"
+    },
+    "Raw_Porkchop": {
+        "texture": "/img/mc/Raw_Porkchop.png"
+    },
+    "Apple": {
+        "texture": "/img/mc/Apple.png"
+    },
+    "Rotten_Flesh": {
+        "texture": "/img/mc/Rotten_Flesh.png"
+    },
+    "Pumpkin_Pie": {
+        "texture": "/img/mc/Pumpkin_Pie.png"
+    },
+    "Mushroom_Stew": {
+        "texture": "/img/mc/Mushroom_Stew.png"
+    },
+    "Raw_Mutton": {
+        "texture": "/img/mc/Raw_Mutton.png"
+    },
+    "Oak_Sign": {
+        "texture": "/img/mc/Oak_Sign.png"
+    },
+    "Spruce_Trapdoor": {
+        "texture": "/img/mc/Spruce_Trapdoor.png"
+    },
+    "Birch_Log": {
+        "texture": "/img/mc/Birch_Log.png"
+    },
+    "Acacia_Stair": {
+        "texture": "/img/mc/Acacia_Stair.png"
+    },
+    "Dark_Oak_Door": {
+        "texture": "/img/mc/Dark_Oak_Door.png"
+    },
+    "Jungle_Slab": {
+        "texture": "/img/mc/Jungle_Slab.png"
+    },
+    "Mangrove_Stair": {
+        "texture": "/img/mc/Mangrove_Stair.png"
+    },
+    "Crimson_Fence_Gate": {
+        "texture": "/img/mc/Crimson_Fence_Gate.png"
+    },
+    "Warped_Stem": {
+        "frames": "",
+        "texture": "/img/mc/Warped_Stem.png"
+    },
+    "Cherry_Plank": {
+        "texture": "/img/mc/Cherry_Plank.png"
+    },
+    "Wheat": {
+        "texture": "/img/mc/Wheat.png"
+    },
+    "Beetroot": {
+        "texture": "/img/mc/Beetroot.png"
+    },
+    "Carrot": {
+        "texture": "/img/mc/Carrot.png"
+    },
+    "Potato": {
+        "texture": "/img/mc/Potato.png"
+    },
+    "Melon_Slice": {
+        "texture": "/img/mc/Melon_Slice.png"
+    },
+    "Chorus_Fruit": {
+        "texture": "/img/mc/Chorus_Fruit.png"
+    },
+    "Sugar_Cane": {
+        "texture": "/img/mc/Sugar_Cane.png"
+    },
+    "Nether_Wart": {
+        "texture": "/img/mc/Nether_Wart.png"
+    },
+    "Bamboo": {
+        "texture": "/img/mc/Bamboo.png"
+    },
+    "Kelp": {
+        "texture": "/img/mc/Kelp.png"
+    },
+    "Sword": {
+        "var": {
+            "wooden": "/img/mc/Sword_wooden.png",
+            "stone": "/img/mc/Sword_stone.png",
+            "iron": "/img/mc/Sword_iron.png",
+            "golden": "/img/mc/Sword_golden.png",
+            "diamond": "/img/mc/Sword_diamond.png"
+        },
+        "texture": "/img/mc/Sword.png"
+    },
+    "Pickaxe": {
+        "var": {
+            "wooden": "/img/mc/Pickaxe_wooden.png",
+            "stone": "/img/mc/Pickaxe_stone.png",
+            "iron": "/img/mc/Pickaxe_iron.png",
+            "golden": "/img/mc/Pickaxe_golden.png",
+            "diamond": "/img/mc/Pickaxe_diamond.png"
+        },
+        "texture": "/img/mc/Pickaxe.png"
+    },
+    "Shovel": {
+        "var": {
+            "wooden": "/img/mc/Shovel_wooden.png",
+            "stone": "/img/mc/Shovel_stone.png",
+            "iron": "/img/mc/Shovel_iron.png",
+            "golden": "/img/mc/Shovel_golden.png",
+            "diamond": "/img/mc/Shovel_diamond.png"
+        },
+        "texture": "/img/mc/Shovel.png"
+    },
+    "Hoe": {
+        "var": {
+            "wooden": "/img/mc/Hoe_wooden.png",
+            "stone": "/img/mc/Hoe_stone.png",
+            "iron": "/img/mc/Hoe_iron.png",
+            "golden": "/img/mc/Hoe_golden.png",
+            "diamond": "/img/mc/Hoe_diamond.png"
+        },
+        "texture": "/img/mc/Hoe.png"
+    },
+    "Axe": {
+        "var": {
+            "wooden": "/img/mc/Axe_wooden.png",
+            "stone": "/img/mc/Axe_stone.png",
+            "iron": "/img/mc/Axe_iron.png",
+            "golden": "/img/mc/Axe_golden.png",
+            "diamond": "/img/mc/Axe_diamond.png"
+        },
+        "texture": "/img/mc/Axe.png"
+    },
+    "Flint_and_Steel": {
+        "texture": "/img/mc/Flint_and_Steel.png"
+    },
+    "Bucket": {
+        "texture": "/img/mc/Bucket.png"
+    },
+    "Spyglass": {
+        "texture": "/img/mc/Spyglass.png"
+    },
+    "Elytra": {
+        "texture": "/img/mc/Elytra.png"
+    },
+    "Bow": {
+        "texture": "/img/mc/Bow.png"
+    },
+    "Cobblestone": {
+        "texture": "/img/mc/Cobblestone.png"
+    },
+    "Nether_Bricks": {
+        "texture": "/img/mc/Nether_Bricks.png"
+    },
+    "Stone_Bricks": {
+        "texture": "/img/mc/Stone_Bricks.png"
+    },
+    "Sandstone": {
+        "texture": "/img/mc/Sandstone.png"
+    },
+    "Red_Sandstone": {
+        "texture": "/img/mc/Red_Sandstone.png"
+    },
+    "Mossy_Cobblestone": {
+        "texture": "/img/mc/Mossy_Cobblestone.png"
+    },
+    "Dark_Prismarine": {
+        "texture": "/img/mc/Dark_Prismarine.png"
+    },
+    "Purpur_Block": {
+        "texture": "/img/mc/Purpur_Block.png"
+    },
+    "Bricks": {
+        "texture": "/img/mc/Bricks.png"
+    },
+    "Spider_Eye": {
+        "texture": "/img/mc/Spider_Eye.png"
+    },
+    "Glowstone_Dust": {
+        "texture": "/img/mc/Glowstone_Dust.png"
+    },
+    "Gunpowder": {
+        "texture": "/img/mc/Gunpowder.png"
+    },
+    "Glistering_Melon_Slice": {
+        "texture": "/img/mc/Glistering_Melon_Slice.png"
+    },
+    "Magma_Cream": {
+        "texture": "/img/mc/Magma_Cream.png"
+    },
+    "Water_Bottle": {
+        "texture": "/img/mc/Water_Bottle.png"
+    },
+    "Blaze_Rod": {
+        "texture": "/img/mc/Blaze_Rod.png"
+    },
+    "Ghast_Tear": {
+        "texture": "/img/mc/Ghast_Tear.png"
+    },
+    "Rabbit's_Foot": {
+        "texture": "/img/mc/Rabbit's_Foot.png"
+    },
+    "Sugar": {
+        "texture": "/img/mc/Sugar.png"
+    },
+    "Diamond": {
+        "texture": "/img/mc/Diamond.png"
+    },
+    "Iron_Ingot": {
+        "texture": "/img/mc/Iron_Ingot.png"
+    },
+    "Coal": {
+        "texture": "/img/mc/Coal.png"
+    },
+    "Gold_Ingot": {
+        "texture": "/img/mc/Gold_Ingot.png"
+    },
+    "Copper_Ingot": {
+        "texture": "/img/mc/Copper_Ingot.png"
+    },
+    "Lapis_Lazuli": {
+        "texture": "/img/mc/Lapis_Lazuli.png"
+    },
+    "Emerald": {
+        "texture": "/img/mc/Emerald.png"
+    },
+    "Netherite_Ingot": {
+        "texture": "/img/mc/Netherite_Ingot.png"
+    },
+    "Nether_Quartz": {
+        "texture": "/img/mc/Nether_Quartz.png"
+    },
+    "Amethyst_Shard": {
+        "texture": "/img/mc/Amethyst_Shard.png"
+    },
+    "Redstone_Repeater": {
+        "texture": "/img/mc/Redstone_Repeater.png"
+    },
+    "Daylight_Detector": {
+        "texture": "/img/mc/Daylight_Detector.png"
+    },
+    "Redstone_Lamp": {
+        "texture": "/img/mc/Redstone_Lamp.png"
+    },
+    "Hopper": {
+        "texture": "/img/mc/Hopper.png"
+    },
+    "Observer": {
+        "texture": "/img/mc/Observer.png"
+    },
+    "Piston": {
+        "texture": "/img/mc/Piston.png"
+    },
+    "Sticky_Piston": {
+        "texture": "/img/mc/Sticky_Piston.png"
+    },
+    "Dispenser": {
+        "texture": "/img/mc/Dispenser.png"
+    },
+    "Target": {
+        "texture": "/img/mc/Target.png"
+    },
+    "Block_of_Redstone": {
+        "texture": "/img/mc/Block_of_Redstone.png"
+    },
+    "Crafting_Table": {
+        "texture": "/img/mc/Crafting_Table.png"
+    },
+    "Furnace": {
+        "texture": "/img/mc/Furnace.png"
+    },
+    "Chest": {
+        "texture": "/img/mc/Chest.png"
+    },
+    "Enchanting_Table": {
+        "texture": "/img/mc/Enchanting_Table.png"
+    },
+    "Anvil": {
+        "texture": "/img/mc/Anvil.png"
+    },
+    "Composter": {
+        "texture": "/img/mc/Composter.png"
+    },
+    "Jukebox": {
+        "texture": "/img/mc/Jukebox.png"
+    },
+    "Stonecutter": {
+        "texture": "/img/mc/Stonecutter.png"
+    },
+    "Cauldron": {
+        "texture": "/img/mc/Cauldron.png"
+    },
+    "Red_Bed": {
+        "texture": "/img/mc/Red_Bed.png"
+    },
+    "Lead": {
+        "texture": "/img/mc/Lead.png"
+    },
+    "Firework_Rocket": {
+        "texture": "/img/mc/Firework_Rocket.png"
+    },
+    "Compass": {
+        "texture": "/img/mc/Compass.png"
+    },
+    "Carrot_on_a_Stick": {
+        "texture": "/img/mc/Carrot_on_a_Stick.png"
+    },
+    "Music_Disc": {
+        "texture": "/img/mc/Music_Disc.png"
+    },
+    "Name_Tag": {
+        "texture": "/img/mc/Name_Tag.png"
+    },
+    "Enchanted_Golden_Apple": {
+        "texture": "/img/mc/Enchanted_Golden_Apple.png",
+        "glint": "true"
+    },
+    "Saddle": {
+        "texture": "/img/mc/Saddle.png"
+    },
+    "Fishing_Rod": {
+        "texture": "/img/mc/Fishing_Rod.png"
+    },
+    "Enchanted_Book": {
+        "texture": "/img/mc/Enchanted_Book.png",
+        "glint": "true"
+    },
+    "Enchanted_Item_Glint": {
+        "texture": "/img/mc/Enchanted_Item_Glint.png"
+    },
+    "idx": [
+        "Cake",
+        "Steak",
+        "Bread",
+        "Golden_Carrot",
+        "Raw_Porkchop",
+        "Apple",
+        "Rotten_Flesh",
+        "Pumpkin_Pie",
+        "Mushroom_Stew",
+        "Raw_Mutton",
+        "Oak_Sign",
+        "Spruce_Trapdoor",
+        "Birch_Log",
+        "Acacia_Stair",
+        "Dark_Oak_Door",
+        "Jungle_Slab",
+        "Mangrove_Stair",
+        "Crimson_Fence_Gate",
+        "Warped_Stem",
+        "Cherry_Plank",
+        "Wheat",
+        "Beetroot",
+        "Carrot",
+        "Potato",
+        "Melon_Slice",
+        "Chorus_Fruit",
+        "Sugar_Cane",
+        "Nether_Wart",
+        "Bamboo",
+        "Kelp",
+        "Sword",
+        "Pickaxe",
+        "Shovel",
+        "Hoe",
+        "Axe",
+        "Flint_and_Steel",
+        "Bucket",
+        "Spyglass",
+        "Elytra",
+        "Bow",
+        "Cobblestone",
+        "Nether_Bricks",
+        "Stone_Bricks",
+        "Sandstone",
+        "Red_Sandstone",
+        "Mossy_Cobblestone",
+        "Dark_Prismarine",
+        "Purpur_Block",
+        "Bricks",
+        "Spider_Eye",
+        "Glowstone_Dust",
+        "Gunpowder",
+        "Glistering_Melon_Slice",
+        "Magma_Cream",
+        "Water_Bottle",
+        "Blaze_Rod",
+        "Ghast_Tear",
+        "Rabbit's_Foot",
+        "Sugar",
+        "Diamond",
+        "Iron_Ingot",
+        "Coal",
+        "Gold_Ingot",
+        "Copper_Ingot",
+        "Lapis_Lazuli",
+        "Emerald",
+        "Netherite_Ingot",
+        "Nether_Quartz",
+        "Amethyst_Shard",
+        "Redstone_Repeater",
+        "Daylight_Detector",
+        "Redstone_Lamp",
+        "Hopper",
+        "Observer",
+        "Piston",
+        "Sticky_Piston",
+        "Dispenser",
+        "Target",
+        "Block_of_Redstone",
+        "Crafting_Table",
+        "Furnace",
+        "Chest",
+        "Enchanting_Table",
+        "Anvil",
+        "Composter",
+        "Jukebox",
+        "Stonecutter",
+        "Cauldron",
+        "Red_Bed",
+        "Lead",
+        "Firework_Rocket",
+        "Compass",
+        "Carrot_on_a_Stick",
+        "Music_Disc",
+        "Name_Tag",
+        "Enchanted_Golden_Apple",
+        "Saddle",
+        "Fishing_Rod",
+        "Enchanted_Book",
+        "Enchanted_Item_Glint"
+    ]
+}

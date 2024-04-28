@@ -1,8 +1,8 @@
-@import url('/assets/common/button_mc/styles.css');
-@import url('/assets/common/sign_mc/styles.css');
-@import url('/assets/common/popup_mc/styles.css');
-@import url('/assets/common/bingo_card/styles.css');
-@import url('/assets/common/bingo_machine/styles.css');
+@import url('/styles/button_mc.css');
+@import url('/styles/sign_mc.css');
+@import url('/styles/popup_mc.css');
+@import url('/styles/bingo_card.css');
+@import url('/styles/bingo_machine.css');
 
 html {
     background-color: gray;
@@ -94,7 +94,12 @@ html {
 
 #id02 #bingo-cards {
     grid-area: cds;
-    grid-template-rows: 1fr;
+    grid-template-rows: 0.1fr 1fr;
+    grid-auto-flow: row;
+}
+
+#id02 #bingo-cards .button-mc_container{
+    min-height: 75%;
 }
 
 #id02 #bingo-chat {
@@ -103,7 +108,7 @@ html {
 }
 
 * {
-    font: 12pt 'minecraftSeven';
+    font: 1.75vmin 'minecraftSeven';
 }
 
 @font-face {

@@ -10,9 +10,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: .28em;
-    height: 2.2em;
-    background: #9b9b9b url('/assets/img/gui_button.png') center / cover;
+    padding-bottom: .31em;
+    background: #9b9b9b url('/img/gui_button.png') center / cover;
     image-rendering: pixelated;
     color: #dfdfdf;
     text-shadow: 2px 2px #383838;
@@ -20,15 +19,16 @@
     border: 2px solid black;
 
     &:hover {
-        background: linear-gradient(rgba(110, 140, 255, 0.45), rgba(110, 140, 255, .45)), url('/assets/img/gui_button.png') center / cover;
+        background: linear-gradient(rgba(110, 140, 255, 0.45), rgba(110, 140, 255, .45)), url('/img/gui_button.png') center / cover;
         /* TODO OPTIMIZE BUTTON BOX SHADOWS*/
         box-shadow: inset 1px 1px rgba(110, 140, 255, 0.45), inset -1px -2px rgba(110, 140, 255, 0.45), inset 1px 1px #aaaaaa, inset -1px -2px #545454;
 		color: #FFFFA0;
     }
 
     &:active {
-        background: linear-gradient(rgba(110, 140, 255, 0.45), rgba(110, 140, 255, .45)), url('/assets/img/gui_button.png') center / cover;
+        background: linear-gradient(rgba(110, 140, 255, 0.45), rgba(110, 140, 255, .45)), url('/img/gui_button.png') center / cover;
         box-shadow: inset 1px 1px rgba(110, 140, 255, 0.45), inset -1px -2px rgba(110, 140, 255, 0.45), inset 1px 1px #545454, inset -1px -1px #aaaaaa;
+        padding-bottom: calc(.31em - 1px);
     }
 
 }

@@ -20,9 +20,10 @@ class BingoServer():
         pass
 
     async def start_serving(self):
-        self.bingo_roll = asyncio.create_task(self.__bingo_roll())
         self.api = self.__api()
         await self.api.start_serving()
+
+        self.bingo_roll = asyncio.create_task(self.__bingo_roll())
 
         print("done")
 
@@ -34,7 +35,7 @@ class BingoServer():
 
     class __api():
         def __init__(self):
-            self._next_bingo = 1
+            self._next_bingo = 0
             self._call_log: deque = deque(maxlen=_BINGO_QUEUE_SIZE)
 
         async def __sse_handler_wrapper(self, request: web.Request):
@@ -48,24 +49,27 @@ class BingoServer():
                                             TRUNCATE TABLE card;""")
             print("db prepped")
 
+            pathlib.Path.unlink(_SOCK_PATH, True)
+            api = await asyncio.start_unix_server(self._handler, _SOCK_PATH)
+            await api.start_serving()
+            _SOCK_PATH.chmod(0o777)
+
             sse_srv = web.Application()
             sse_srv.add_routes([web.get('/', self.__sse_handler_wrapper)])
             sse_srv_runner = web.AppRunner(sse_srv, handler_cancellation=True)
             await sse_srv_runner.setup()
             sse_site = web.TCPSite(sse_srv_runner)
             await sse_site.start()
-                    
-            pathlib.Path.unlink(_SOCK_PATH, True)
-            api = await asyncio.start_unix_server(self._handler, _SOCK_PATH)
-            await api.start_serving()
-            _SOCK_PATH.chmod(0o777)
 
         async def _handler(self, r: asyncio.StreamReader, w: asyncio.StreamWriter):
             query = (await r.read(200)).decode()
             print(query)
             for evt, data in json.loads(query).items():
-                task = asyncio.create_task(self.__evt_handler._evt_handlers[evt](self, data))
-                w.write(json.dumps(await task).encode())
+                try:
+                    task = asyncio.create_task(self.__evt_handler._evt_handlers[evt](self, data))
+                    w.write(json.dumps(await task).encode())
+                except Exception as e:
+                    print(e)
             w.write_eof()
 
         class __sse_handler():
@@ -80,18 +84,22 @@ class BingoServer():
                 self._client_pool.add(resp)
                 try:
                     print("cum")
-                    await resp.write(f"event: catchup\ndata: {json.dumps({'calls', list(self._call_log)})}\n\n".encode())
+                    await resp.write(f"event: catchup\ndata: {json.dumps({'calls': list(self._call_log)})}\n\n".encode())
                     await asyncio.Future()
-                except:
+                except Exception as e:
                     self._client_pool.remove(resp)
                     print("dick")
+                    print(e)
                     return resp
             
             @classmethod
             async def sse_event(cls, evt: str, data: dict):
                 sse_client: web.StreamResponse
                 for sse_client in cls._client_pool:
-                    await sse_client.write(f"event: {evt}\ndata: {json.dumps(data)}\n\n".encode())
+                    try:
+                        await sse_client.write(f"event: {evt}\ndata: {json.dumps(data)}\n\n".encode())
+                    except:
+                        pass
 
         class __evt_handler():
             _evt_handlers = dict() 
@@ -103,20 +111,24 @@ class BingoServer():
             await self.__sse_handler.sse_event("call", {"call": call})
 
         @__evt_handler
-        async def check_bingo(self, arg: dict):
+        async def bingo(self, arg: dict):
             #going in the bingo bingo requet
             async with self._db_pool.acquire() as conn:
                 async with conn.cursor(aiomysql.DictCursor) as cur:
-                    cur.execute(    """SELECT card.id
+                    await cur.execute(    """SELECT card.id
+                                        FROM card
                                         WHERE card.user_id = %s""", (arg['user_id'], ) )
-                    for card_id in cur.fetchall():
+
+                    for card_id in [card['id'] for card in await cur.fetchall()]:
                         completed_rows = 0
                         for i in range(3):
-                            cur.execute(    """SELECT card.spaces_left_%s
+                            await cur.execute(    """SELECT card.spaces_left_%s
+                                              FROM card
                                                 WHERE card.id = %s""", (i, card_id, ) )
-                            if not (await cur.fetchone())[f'spaces_left_{i}']: completed_rows += 1
+                            if (await cur.fetchone())[f'spaces_left_{i}'] == 0: completed_rows += 1
                         if completed_rows > self._next_bingo:
-                            self.next_bingo = completed_rows
+                            self._next_bingo += 1
+                            print("bingo")
                             return {"resp": 1}
                     return {"resp": 0}
         
@@ -190,7 +202,7 @@ class BingoServer():
                             a = [sorted(gen_rows.pop())+[0] for _ in range(3)]
                             for j in range(9):
                                 card_sorted.update( {k*9+j:v for k,v in p( { idx:row.pop(0) for idx, row in enumerate(a) if j*10 <= row[0] < (j+1)*10 } ) } )              
-                            await cur.execute( """INSERT INTO card (user_id, spaces_left_0)
+                            await cur.execute( """INSERT INTO card (user_id)
                                                     VALUES (%s)""", (arg['user_id'],))
                             card_id = cur.lastrowid
                             for key, item in card_sorted.items():                                    

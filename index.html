@@ -77,6 +77,9 @@
       <div class="bingo-machine"></div>
     </div>
     <div id="bingo-cards" class="popup-mc_container">
+      <div class="button-mc_container">
+        <button type="submit">BINGO</button>
+      </div>
       <div class="popup-mc">
         <div class="bingo-card_container">
         </div>
@@ -89,7 +92,7 @@
   </div>
   <svg width=0 height=0>
     <filter id="enchant">
-      <feImage href="enchant.gif" result="img" width="100%" height="100%" x="0%" y="0%"/>
+      <feImage href="/img/enchant.gif" result="img" width="100%" height="100%" x="0%" y="0%"/>
       <feComponentTransfer in="img" result="opac">
         <feFuncA type="linear" slope="0.3"></feFuncA>
         <feFuncR type="table" tableValues=".09803921568 .63137254902"></feFuncR>
@@ -102,9 +105,9 @@
   </svg>
 </body>
 
-<script src="/assets/scripts/bingo.js"></script>
-<script src="/assets/common/popup_mc/popup_mc.js"></script>
-<script src="/assets/common/bingo_card/bingo_card.js"></script>
-<script src="/assets/common/bingo_machine/bingo_machine.js"></script>
+<script src="/scripts/bingo.js"></script>
+<script src="/scripts/popup_mc.js"></script>
+<script src="/scripts/bingo_card.js"></script>
+<script src="/scripts/bingo_machine.js"></script>
 
 </html>
