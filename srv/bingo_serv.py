@@ -1,5 +1,6 @@
 from __future__ import annotations
 import asyncio
+import datetime
 import random
 import os
 import json
@@ -31,12 +32,16 @@ class BingoServer():
         for call in random.sample(range(_BINGO_MAX_NUM), _BINGO_MAX_NUM):
             next_call = asyncio.create_task(asyncio.sleep(_BINGO_CALL_INTERVAL))
             await self.api.bingo_call(call)
+            done, pending = await asyncio.wait([next_call, asyncio.create_task(self.api._bingo_event.wait())], return_when=asyncio.FIRST_COMPLETED)
+            if self.api._bingo_event.is_set(): await self.api.announce_bingo()
             await next_call
 
     class __api():
         def __init__(self):
             self._next_bingo = 0
             self._call_log: deque = deque(maxlen=_BINGO_QUEUE_SIZE)
+            self._bingo_event: asyncio.Event = asyncio.Event()
+            self._bingo_winners: list = []
 
         async def __sse_handler_wrapper(self, request: web.Request):
             return ( await self.__sse_handler(self._call_log)(request) )
@@ -108,7 +113,17 @@ class BingoServer():
 
         async def bingo_call(self, call: int):
             self._call_log.appendleft(call)
-            await self.__sse_handler.sse_event("call", {"call": call})
+            announcement_start = datetime.datetime.now().timestamp()
+            await self.__sse_handler.sse_event("call", {"call": call, "tgt": announcement_start})
+
+        async def announce_bingo(self):
+            announcement_start = datetime.datetime.now().timestamp()
+            frame = asyncio.sleep(_BINGO_CALL_INTERVAL)
+            await self.__sse_handler.sse_event("bingo_alert", {"tgt": int((announcement_start + 2000) * 1000)})
+            await frame
+            await self.__sse_handler.sse_event("bingo", {"winners": self._bingo_winners, "rows_left": 3 - self._next_bingo})
+            self._bingo_event.clear()
+            self._bingo_winners.clear()
 
         @__evt_handler
         async def bingo(self, arg: dict):
@@ -128,7 +143,12 @@ class BingoServer():
                             if (await cur.fetchone())[f'spaces_left_{i}'] == 0: completed_rows += 1
                         if completed_rows > self._next_bingo:
                             self._next_bingo += 1
-                            print("bingo")
+                            self._bingo_event.set()
+                            await cur.execute(  """SELECT user.name
+                                                    FROM user
+                                                    WHERE user.id = %s""", (arg['user_id'], ))
+                            self._bingo_winners.append((await cur.fetchone())['name'])
+                            print(self._bingo_winners)
                             return {"resp": 1}
                     return {"resp": 0}
         
@@ -216,6 +236,7 @@ class BingoServer():
         
 
 async def main():
+
     bingo = BingoServer()
     await bingo.start_serving()
     await asyncio.Future()

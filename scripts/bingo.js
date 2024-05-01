@@ -110,9 +110,16 @@ textures_load().then(textures => {
             item = JSON.parse(event.data).call;
             $("#bingo-machine .bingo-machine").trigger("bingo-machine:call", textures[textures["idx"][item]].texture);
         });
+        bingosrv.addEventListener("bingo_alert", function(event) {
+            console.log(JSON.parse(event.data).tgt)
+            console.log(`wait for winners to be announced in ${(JSON.parse(event.data).tgt - Date.now()) / 1000000}`);
+        });
+        bingosrv.addEventListener("bingo", function(event) {
+            console.log("wholesome");
+        });
         bingosrv.onopen = (e) => {
             bingo_sse_reconnect_time = 1;
-        }
+        };
         bingosrv.onerror = (err) => {
             bingosrv.close();
             bingo_sse_reconnect_time *= 2;
